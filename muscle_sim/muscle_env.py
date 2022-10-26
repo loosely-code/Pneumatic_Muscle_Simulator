@@ -128,7 +128,6 @@ class Three_element_env(object):
 
 # test 
 
-
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
     # define the simulation parameters
