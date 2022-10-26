@@ -71,20 +71,22 @@ $$
 模型参数:
 
 $$
-\begin{align}
-K=&\left\{\begin{matrix}
+K=\left\{\begin{matrix}
 =& 32.7 − 0.0321P \ ,&& 150 ≤ P ≤ 314 kPa \\
 =& 17 + 0.0179P \ ,&& 314 ≤ P ≤ 550 kPa
 \end{matrix}\right.\\
-\\
-B=& \left\{\begin{matrix}
+$$
+
+$$
+B= \left\{\begin{matrix}
 =& 2.90 \ , && 150 ≤ P ≤ 550 kPa \ (\text{contraction})\\
 =& 1.57 \ ,&& 150 ≤ P ≤ 372 kPa \ (\text{relaxation}) \\
 =& 0.311 + 0.00338P \ ,&& 372 ≤ P ≤ 550 kPa \ (\text{relaxation})
 \end{matrix}\right.\\
-\\
-F=& 2.91P+44.6
-\end{align}
+$$
+
+$$
+F= 2.91P+44.6
 $$
 
 量纲:
