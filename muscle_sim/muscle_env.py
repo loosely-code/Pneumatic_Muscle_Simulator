@@ -125,4 +125,53 @@ class Three_element_env(object):
             elif 372 <= pressure <= 550:
                 b = 0.311 + 0.00338 * pressure
         return f, k, b
+
+# test 
+
+
+if __name__ == "__main__":
+    import matplotlib.pyplot as plt
+    # define the simulation parameters
+    t_total = 5.0  # 5s in realtime
+    t_sample = 0.01
+    N_iter = int(t_total // t_sample) 
+    load0 = 350  # 外载荷
+    p_in = 550  # 输入气压
+    mass = 0.0002 # 0.0002*10^3 = 0.2kg
+
+    # initialization
+
+    # initialize the environment
+    env = Three_element_env(
+        T_sample= t_sample,
+        Load_0= load0,
+        Mass= mass
+    )
+
+    # initialize plot memory
+    plotMemory_state = np.zeros([N_iter, 2])
+    plotMemory_time = np.zeros([N_iter, 1])
     
+    for iter in range(N_iter):
+        state = env.step(U_k=p_in, Load_k=load0)
+        vec = (state[0] - state[1]) / t_sample
+        plotMemory_state[iter,0] = state[0]
+        plotMemory_state[iter,1] = vec
+        plotMemory_time[iter] = env.get_t()
+
+    # plot
+    fig, a = plt.subplots(2, 1)
+    a[0].set_title("Displacement")
+    a[1].set_title("Velocity")
+    a[0].set_xlabel("t - s")
+    a[1].set_xlabel("t - s")
+    a[0].set_ylabel("y - mm")
+    a[1].set_ylabel("ydot - mm/s")
+    a[0].plot(plotMemory_time, plotMemory_state[:, 0])
+    print(plotMemory_state[-1, 0])
+    a[1].plot(plotMemory_time, plotMemory_state[:, 1])
+    a[0].grid(True)
+    a[1].grid(True)
+
+    plt.show()
+
