@@ -97,7 +97,7 @@ if __name__ == "__main__":
     #a.plot(plotMemory_time,plotMemory_output)
     # plot
     fig, a = plt.subplots(1, 1)
-    a.set_title("Displacement")
+    a.set_title("signal output")
     a.set_xlabel("t - s")
     a.set_ylabel("y - mm")
     a.plot(plotMemory_time, plotMemory_output)
