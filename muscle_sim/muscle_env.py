@@ -27,11 +27,15 @@ class Three_element_env(object):
     def reset(self):
         """
         reset the simulator to initial state
+
+        return self.state: initialized state 
         """
         self.load = self.load_0
         self.t_global = 0.0
         self.state[0] = self.state[1] = 0
         self.contraction = True
+        
+        return self.state
 
     def step(self, U_k,Load_k):
         """

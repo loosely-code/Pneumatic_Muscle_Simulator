@@ -25,10 +25,14 @@ class signal_sin:
 
     def reset(self):
         """
-        reset the signal to initial state        
+        reset the signal to initial state   
+
+        return:
+            self.output:     
         """
         self.t_global = 0
-        self.output = 0
+        self.output = self.center 
+        return self.output
 
     def step(self):
         """
